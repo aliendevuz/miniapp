@@ -1,0 +1,41 @@
+{
+  "name": "miniapp-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for miniapp testing",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "setup:localstack": "docker-compose up -d",
+    "setup:tables": "ts-node scripts/setup-dynamodb.ts"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "firebase",
+    "remote-config",
+    "mvvm",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^4.15.0",
+    "firebase-admin": "^12.0.0",
+    "@aws-sdk/client-dynamodb": "^3.478.0",
+    "@aws-sdk/lib-dynamodb": "^3.478.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "prettier": "^3.1.1"
+  }
+}
