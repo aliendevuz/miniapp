@@ -5,15 +5,21 @@ dotenv.config();
 
 const bot = new Telegraf(process.env.BOT_TOKEN!);
 
-// start komandasi webview tugmasi bilan
 bot.start((ctx) => {
-  return ctx.reply(
-    "Mini App ga xush kelibsiz!",
+  ctx.reply(
+    "Mini App:",
     Markup.inlineKeyboard([
-      Markup.button.webApp("Mini App ni ochish", "https://xalilov.uz/")
+      [Markup.button.webApp("Ochilish", "https://miniapp-by-alien.netlify.app/")]
     ])
   );
 });
 
+bot.on("message", (ctx) => {
+  const data = ctx.message.web_app_data?.data;
+
+  if (data) {
+    ctx.reply("WebApp dan kelgan data: " + data);
+  }
+});
+
 bot.launch();
-console.log("Bot ishga tushdi...");

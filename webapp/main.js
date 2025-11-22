@@ -17,6 +17,7 @@ tg.MainButton.show();
 
 tg.MainButton.onClick(() => {
   tg.sendData("Tasdiqlandi!");
+  document.body.style.color = "red";
 });
 
 // Back button
